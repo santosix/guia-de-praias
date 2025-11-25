@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-/* ========================================
-   RESET E SETUP
-======================================== */
+/* ===========================
+   REGRAS GLOBAIS / ROOT
+=========================== */
 * {
     box-sizing: border-box;
 }
@@ -17,43 +17,36 @@
 html, body {
     height: auto;
     overflow-y: auto;
-    margin: 0;
-    padding: 0;
 }
 
-/* ========================================
-   BODY GLOBAL
-======================================== */
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-
+    height: 100vh;
+    font-family: "Quicksand", sans-serif;
+    color: var(--secondary-color);
     background-image: url('https://images.unsplash.com/vector-1746618662777-7058cb830c6a?q=80&w=1267&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-
-    color: var(--secondary-color);
-    font-family: "Quicksand", sans-serif;
 }
 
-/* ========================================
-   MODIFICADORES DE PÁGINA
-======================================== */
+/* ===========================
+   MODOS DE PÁGINA
+=========================== */
 body.praia {
     min-height: 100vh;
     overflow-y: auto;
 }
 
 body.home {
+    height: 100vh;
     overflow-y: hidden;
 }
 
-/* ========================================
-   LAYOUT GLOBAL
-======================================== */
 .page-praia {
     flex: 1;
     max-width: 900px;
@@ -61,20 +54,23 @@ body.home {
     padding: 1rem;
 }
 
+/* ===========================
+   MAIN
+=========================== */
 main {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     max-width: 80rem;
     margin: 0 auto;
     padding: 9rem 1rem 7rem;
+    overflow: hidden;
 }
 
-/* ========================================
+/* ===========================
    HEADER
-======================================== */
+=========================== */
 header {
     padding: 1rem;
     display: flex;
@@ -82,40 +78,41 @@ header {
     justify-content: space-around;
     position: sticky;
     top: 0;
+    gap: 1rem;
+    z-index: 10;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
-    z-index: 10;
-    gap: 1rem;
 }
 
 header h1 {
     margin: 0;
-    font-weight: 500;
     font-size: 1.5rem;
+    font-weight: 500;
     color: #1b3883;
+    white-space: pre-line;
 }
 
 header h1 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 header h1 a:hover {
     opacity: 0.8;
 }
 
-/* ========================================
+/* ===========================
    FOOTER
-======================================== */
+=========================== */
 .footer {
     width: 100%;
-    margin-top: auto;
-    color: var(--tertiary-color);
-    background: rgba(255, 255, 255, 0.3);
-    padding: 7.5px 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
     font-size: 0.8rem;
+    margin-top: auto;
+    padding: 7.5px 20px;
+    color: var(--tertiary-color);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
 }
 
 .footer-location {
@@ -126,15 +123,15 @@ header h1 a:hover {
 .footer-links {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
 .footer-links a {
     color: #000;
     text-decoration: none;
-    transition: 0.2s;
+    transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -142,51 +139,53 @@ header h1 a:hover {
 }
 
 .praia .footer {
-    background: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     color: #1b3883;
     padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
     border-radius: 12px 12px 0 0;
+    backdrop-filter: blur(8px);
 }
 
-/* ========================================
-   BUSCA
-======================================== */
+/* ===========================
+   INPUTS E BUSCA
+=========================== */
 div input {
     width: 30rem;
     height: 3rem;
     padding: 0.375rem 0.75rem;
-    border-radius: 1rem;
-    border: none;
     font-size: 1.5rem;
     font-family: inherit;
     color: var(--tertiary-color);
+    border-radius: 1rem;
+    border: none;
     margin-right: .5rem;
-
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
 
 div input::placeholder {
     font-size: 1.2rem;
+    font-weight: 300;
     color: var(--tertiary-color);
 }
 
 div input:focus {
     outline: none;
-    box-shadow: 0 0 0 .1rem var(--tertiary-color);
+    box-shadow: 0 0 0 0.1rem var(--tertiary-color);
 }
 
+/* BOTÃO DE BUSCA */
 #botao-busca {
     height: 3rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 500;
     font-size: 1rem;
-
+    font-weight: 500;
     color: var(--tertiary-color);
+    cursor: pointer;
+    border: none;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
@@ -194,15 +193,16 @@ div input:focus {
 #botao-busca:hover {
     background: var(--primary-color);
     color: var(--bg-color);
+    box-shadow: 0 0 0 0.1rem var(--primary-color);
 }
 
 #botao-busca:active {
     transform: scale(0.98);
 }
 
-/* ========================================
-   CARROSSEL
-======================================== */
+/* ===========================
+   CARROSSEL E CARDS
+=========================== */
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -212,61 +212,62 @@ div input:focus {
 
 .seta {
     z-index: 5;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 2rem;
-
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(6px);
-
-    border: none;
-    color: #1b3883;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     cursor: pointer;
+    border: none;
+    color: #1b3883;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
     transition: 0.2s;
 }
 
 .seta:hover {
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .seta-esquerda { left: 0; }
 .seta-direita { right: 0; }
 
-/* ========================================
-   CARDS
-======================================== */
 .card-container {
     display: flex;
     gap: 1rem;
-    align-items: center;
     padding: 1rem 2.5rem;
+    align-items: center;
+    justify-content: flex-start;
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 
+.card-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
 .card-body {
-    flex: 0 0 350px;
     width: 350px;
+    flex: 0 0 350px;
     padding: 10px;
-    margin: auto;
-
-    background: rgba(195, 215, 233, 0.9);
-    backdrop-filter: blur(5px);
-
-    border: 1px solid #ddd;
-    border-radius: 12px;
+    margin: 0 auto;
     text-align: center;
+    border-radius: 12px;
     cursor: pointer;
     scroll-snap-align: center;
-    transition: 0.2s;
+    border: 1px solid #ddd;
+    background: rgba(195, 215, 233, 0.9);
+    backdrop-filter: blur(5px);
 }
 
 .card-body:hover {
     transform: scale(1.03);
+    transition: 0.2s;
 }
 
 .card-body * {
@@ -278,28 +279,16 @@ div input:focus {
     height: 170px;
     object-fit: cover;
     border-radius: 12px;
-    margin-bottom: 10px;
 }
 
-.mapa-estatico {
-    height: 200px;
-    object-fit: cover;
-}
-
-/* ========================================
-   ARTICLE / LISTAGEM
-======================================== */
+/* ===========================
+   ARTICLE / LISTA DE PRAIAS
+=========================== */
 article {
     margin-bottom: 1.25rem;
     padding: 0 1rem 1.5rem;
+    transition: background-color 0.3s ease;
     background: none;
-    border-radius: 0;
-    box-shadow: none;
-    transition: 0.3s;
-}
-
-article:hover {
-    transform: scale(1.01);
 }
 
 article h2 {
@@ -311,66 +300,63 @@ article h2 {
 
 article p {
     margin: 0.5rem 0;
+    font-size: 1rem;
     line-height: 1.6;
-    color: #1b3883;
     white-space: pre-line;
+    color: #1b3883;
 }
 
-/* ========================================
-   DETALHES DA PRAIA
-======================================== */
+article:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+/* ===========================
+   PÁGINA DE DETALHES
+=========================== */
 .praia-detalhe {
     padding: 2rem;
-    border-radius: 15px;
     text-align: center;
-
+    color: #1b3883;
+    border-radius: 15px;
     background: rgba(195, 215, 233, 0.9);
     backdrop-filter: blur(8px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-
-    color: #1b3883;
 }
 
 .praia-detalhe h2 {
-    font-size: 2rem;
     margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-.imagem-detalhe {
+.imagem-detalhe,
+.mapa-detalhe {
     width: 100%;
-    height: 380px;
     object-fit: cover;
     border-radius: 15px;
-    margin-bottom: 1.5rem;
 }
 
+.imagem-detalhe { height: 380px; }
+.mapa-detalhe { height: 250px; margin: 1.5rem 0 2rem; }
+
 .praia-detalhe p {
+    margin-bottom: 2rem;
     font-size: 1.2rem;
     line-height: 1.7;
     white-space: pre-line;
-    margin-bottom: 2rem;
-}
-
-.mapa-detalhe {
-    width: 100%;
-    height: 250px;
-    border-radius: 15px;
-    margin: 1.5rem 0 2rem;
-    object-fit: cover;
 }
 
 .botao-voltar {
     padding: 0.9rem 2rem;
     font-size: 1.2rem;
     font-weight: 600;
-
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(6px);
-    border-radius: 12px;
     border: none;
+    border-radius: 12px;
     cursor: pointer;
     color: #1b3883;
-
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(6px);
     transition: 0.2s;
 }
 
@@ -384,14 +370,12 @@ article p {
     transform: scale(0.97);
 }
 
-/* ========================================
-   MEDIA QUERIES
-======================================== */
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
 @media (max-width: 768px) {
-
     header {
         flex-direction: column;
-        padding: 1rem;
     }
 
     header h1 {
@@ -412,29 +396,25 @@ article p {
         transform: none;
     }
 
-    .imagem-detalhe {
-        height: 250px;
-    }
-
-    .mapa-detalhe {
-        height: 180px;
-    }
-
-    .praia-detalhe {
-        padding: 1rem;
-    }
+    .imagem-detalhe { height: 250px; }
+    .mapa-detalhe { height: 180px; }
+    .praia-detalhe { padding: 1rem; }
 }
 
 @media (max-width: 480px) {
-
     header h1 {
         font-size: 1rem;
         max-width: 70%;
+        word-wrap: break-word;
     }
 
     div input,
     div input::placeholder {
         font-size: 1rem;
+    }
+
+    article h2 {
+        font-size: 1.3rem;
     }
 
     div {
@@ -443,10 +423,6 @@ article p {
         gap: 0.5rem;
         align-items: center;
         justify-content: center;
-    }
-
-    article h2 {
-        font-size: 1.3rem;
     }
 
     .footer {
