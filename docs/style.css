@@ -226,11 +226,14 @@ div input:focus {
 .seta-direita { right: 0; }
 
 .card-container {
-    display: flex;
-    gap: 1rem;
-    height: 100%;         /* ocupa toda altura do main */
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    height: auto !important;
+    padding: 1rem 0 !important;
+}
+
+.card-body {
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
 }
 
 .card-container::-webkit-scrollbar {
@@ -403,39 +406,22 @@ article p {
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1rem;
-        max-width: 70%;
-        word-wrap: break-word;
-    }
-
-    div input,
-    div input::placeholder {
-        font-size: 1rem;
-    }
 
     .busca-container {
-        display: flex;
-        flex-direction: row;      
+        flex-direction: row !important;
+        gap: 0.5rem;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
         width: 100%;
     }
 
-    article h2 {
-        font-size: 1.3rem;
-    }
-    
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .busca-container input {
+        width: 65% !important;
     }
 
-    button {
-        margin-top: 0; 
+    .busca-container button {
+        width: 30% !important;
+        margin-top: 0 !important;
     }
 }
 
