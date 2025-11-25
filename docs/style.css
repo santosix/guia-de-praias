@@ -58,13 +58,12 @@ body.home {
 }
 
 main {
-    flex: 1 1 auto;
+    flex: 1 1 auto;       /* ocupa todo o espaço entre header e footer */
     display: flex;
-    padding: 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    align-items: center;
-    height: auto;
+    align-items: stretch; /* cards ocupam toda a altura do main */
+    overflow-x: auto;     /* scroll horizontal dos cards */
+    overflow-y: hidden;   /* sem scroll vertical */
+    padding: 0 1rem;
 }
 
 /* Componentes Estruturais (Header e Footer) */
@@ -107,7 +106,6 @@ header h1 a:hover { opacity: 0.8; }
     backdrop-filter: blur(5px);
     font-size: 0.8rem;
     margin-top: auto; 
-    text-align: center;
 }
 
 .footer-location { color: #000; margin-bottom: 10px; }
@@ -229,9 +227,9 @@ div input:focus {
 .card-container {
     display: flex;
     gap: 1rem;
+    height: 100%;         /* ocupa toda altura do main */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    align-items: stretch;
 }
 
 .card-container::-webkit-scrollbar {
@@ -243,16 +241,12 @@ div input:focus {
 }
 
 .card-body {
-    flex: 0 0 350px; /* mantém largura fixa */
-    height: auto; /* volta o comportamento normal */
+    flex: 0 0 auto;       /* largura fixa do card */
+    height: 100%;         /* ocupa altura total do main */
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    margin: 0 1rem; /* impede ficarem grudados */
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background: rgba(195, 215, 233, 0.9); /* volta fundo transparente */
-    padding: 10px;
-    backdrop-filter: blur(5px);
+    justify-content: space-between; /* conteúdo do card distribuído verticalmente */
 }
 
 .card-body * { pointer-events: none; }
@@ -270,10 +264,9 @@ div input:focus {
     margin-bottom: 10px;
 }
 
-.mapa-estatico,
-.mapa-detalhe {
-    height: auto;
-    max-height: 200px;
+.mapa-estatico {
+    height: 200px;
+    object-fit: cover;
 }
 
 /* Estilos de Conteúdo (Article e Detalhe da Praia) */
@@ -418,27 +411,28 @@ article p {
     }
 
     .busca-container {
-        display: flex;
-        flex-direction: row;      
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
         gap: 0.5rem;
-        width: 100%;
     }
 
     article h2 {
         font-size: 1.3rem;
     }
-    
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     .footer {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
 
     button {
-        margin-top: 0; 
+        margin-top: 1rem;
     }
-}
 
+}
