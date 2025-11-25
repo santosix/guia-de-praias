@@ -11,6 +11,8 @@ fetch("data.json")
       return;
     }
 
+    const { lat, lon } = praia; // pega latitude e longitude do objeto
+
     document.getElementById("praia-nome").textContent = praia.nome;
     document.getElementById("praia-desc").textContent = praia.descricao;
     document.getElementById("praia-img").src = praia.imagem;
@@ -18,5 +20,6 @@ fetch("data.json")
     document.getElementById("praia-mapa").src =
       `https://guia-de-praias.onrender.com/map?lat=${lat}&lon=${lon}`;
   });
+
 
 
