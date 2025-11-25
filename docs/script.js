@@ -12,7 +12,7 @@ function normalizarTexto(texto) {
 }
 
 function gerarMapaEstatico(lat, lon) {
-    return `https://SEU-BACKEND-PUBLICO.onrender.com/map?lat=${lat}&lon=${lon}`;
+    return `https://guia-de-praias.onrender.com/map?lat=${lat}&lon=${lon}`;
 }
 
 async function carregarTodosOsCards() {
@@ -78,4 +78,5 @@ window.addEventListener("DOMContentLoaded", carregarTodosOsCards);
 
 campoBusca.addEventListener("keydown", (evento) => {
     if (evento.key === "Enter") iniciarBusca();
+
 });
