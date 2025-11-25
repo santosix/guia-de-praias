@@ -44,8 +44,8 @@ body.praia {
 body.home {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;       /* ocupa toda a altura da tela */
-    overflow-y: auto;
+    height: 100vh;       /* ocupa toda a altura da tela */
+    overflow: hidden; 
 }
 
 .page-praia {
@@ -58,7 +58,7 @@ body.home {
 }
 
 main {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     display: flex;
     padding: 1rem;
     overflow-x: auto;
@@ -231,7 +231,7 @@ div input:focus {
     gap: 1rem;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    align-items: center;
+    align-items: stretch;
 }
 
 .card-container::-webkit-scrollbar {
@@ -441,7 +441,4 @@ article p {
         margin-top: 0; 
     }
 }
-
-
-
 
