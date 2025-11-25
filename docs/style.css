@@ -40,13 +40,53 @@ body.praia {
     overflow-y: auto;
 }
 
-/* NOVO LAYOUT 100vh / sem scroll / header + cards + footer */
+/* ----- LAYOUT DA PÁGINA INICIAL ----- */
 body.home {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     height: 100vh;
-    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* header | main | footer */
+    overflow: hidden; /* impede scroll vertical */
 }
+
+/* header fixo, sem altura variável */
+body.home header {
+    flex-shrink: 0;
+}
+
+/* MAIN ocupa exatamente o espaço restante */
+body.home main {
+    overflow: hidden; /* impede o conteúdo de estourar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* CAROUSEL ocupa 100% da altura restante */
+body.home .carousel-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* container onde ficam os cards */
+body.home .card-container {
+    height: 100%;
+    overflow: hidden; /* garante que nada estoure */
+    display: flex;
+    align-items: center;
+}
+
+/* Footer fixo no final da tela */
+body.home .footer {
+    flex-shrink: 0;
+}
+
 
 /* ===========================
    MAIN
@@ -397,3 +437,4 @@ article:hover { transform: scale(1.01); cursor: pointer; }
 
     button { margin-top: 1rem; }
 }
+
