@@ -16,6 +16,7 @@ fetch("data.json")
     document.getElementById("praia-img").src = praia.imagem;
 
     document.getElementById("praia-mapa").src =
-      `https://SEU-BACKEND-PUBLICO.onrender.com/map?lat=${lat}&lon=${lon}`;
+      `https://guia-de-praias.onrender.com/map?lat=${lat}&lon=${lon}`;
   });
+
 
