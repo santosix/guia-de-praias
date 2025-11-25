@@ -3,9 +3,7 @@
 /* ===========================
    REGRAS GLOBAIS / ROOT
 =========================== */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 :root {
     --primary-color: #8ab4f8;
@@ -42,26 +40,29 @@ body.praia {
     overflow-y: auto;
 }
 
+/* NOVO LAYOUT 100vh / sem scroll / header + cards + footer */
 body.home {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     height: 100vh;
     overflow-y: hidden;
-}
-
-.page-praia {
-    flex: 1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
 }
 
 /* ===========================
    MAIN
 =========================== */
-main {
-    flex: 1;
+
+/* Página inicial ajustada */
+body.home main {
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+/* Página de detalhes preservada */
+main {
     max-width: 80rem;
     margin: 0 auto;
     padding: 9rem 1rem 7rem;
@@ -97,9 +98,7 @@ header h1 a {
     text-decoration: none;
 }
 
-header h1 a:hover {
-    opacity: 0.8;
-}
+header h1 a:hover { opacity: 0.8; }
 
 /* ===========================
    FOOTER
@@ -115,10 +114,7 @@ header h1 a:hover {
     border-radius: 10px;
 }
 
-.footer-location {
-    color: #000;
-    margin-bottom: 10px;
-}
+.footer-location { color: #000; margin-bottom: 10px; }
 
 .footer-links {
     list-style: none;
@@ -134,9 +130,7 @@ header h1 a:hover {
     transition: color 0.2s;
 }
 
-.footer-links a:hover {
-    color: #3486b6;
-}
+.footer-links a:hover { color: #3486b6; }
 
 .praia .footer {
     background-color: rgba(255, 255, 255, 0.5);
@@ -176,7 +170,6 @@ div input:focus {
     box-shadow: 0 0 0 0.1rem var(--tertiary-color);
 }
 
-/* BOTÃO DE BUSCA */
 #botao-busca {
     height: 3rem;
     padding: 1rem 2rem;
@@ -196,13 +189,20 @@ div input:focus {
     box-shadow: 0 0 0 0.1rem var(--primary-color);
 }
 
-#botao-busca:active {
-    transform: scale(0.98);
-}
+#botao-busca:active { transform: scale(0.98); }
 
 /* ===========================
    CARROSSEL E CARDS
 =========================== */
+
+/* NOVO ajuste: carousel ocupa espaço disponível */
+body.home .carousel-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .carousel-wrapper {
     position: relative;
     display: flex;
@@ -242,10 +242,7 @@ div input:focus {
     scroll-behavior: smooth;
 }
 
-.card-container::-webkit-scrollbar {
-    height: 8px;
-}
-
+.card-container::-webkit-scrollbar { height: 8px; }
 .card-container::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
@@ -265,14 +262,9 @@ div input:focus {
     backdrop-filter: blur(5px);
 }
 
-.card-body:hover {
-    transform: scale(1.03);
-    transition: 0.2s;
-}
+.card-body:hover { transform: scale(1.03); transition: 0.2s; }
 
-.card-body * {
-    pointer-events: none;
-}
+.card-body * { pointer-events: none; }
 
 .card-body img {
     width: 100%;
@@ -282,7 +274,7 @@ div input:focus {
 }
 
 /* ===========================
-   ARTICLE / LISTA DE PRAIAS
+   ARTICLE
 =========================== */
 article {
     margin-bottom: 1.25rem;
@@ -306,10 +298,7 @@ article p {
     color: #1b3883;
 }
 
-article:hover {
-    transform: scale(1.01);
-    cursor: pointer;
-}
+article:hover { transform: scale(1.01); cursor: pointer; }
 
 /* ===========================
    PÁGINA DE DETALHES
@@ -366,36 +355,17 @@ article:hover {
     transform: scale(1.03);
 }
 
-.botao-voltar:active {
-    transform: scale(0.97);
-}
+.botao-voltar:active { transform: scale(0.97); }
 
 /* ===========================
    RESPONSIVIDADE
 =========================== */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    header h1 {
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    div input {
-        width: 90vw;
-        font-size: 1.2rem;
-    }
-
-    main {
-        padding: 0 1rem;
-    }
-
-    article:hover {
-        transform: none;
-    }
-
+    header { flex-direction: column; }
+    header h1 { text-align: center; margin-bottom: 1rem; }
+    div input { width: 90vw; font-size: 1.2rem; }
+    main { padding: 0 1rem; }
+    article:hover { transform: none; }
     .imagem-detalhe { height: 250px; }
     .mapa-detalhe { height: 180px; }
     .praia-detalhe { padding: 1rem; }
@@ -413,9 +383,7 @@ article:hover {
         font-size: 1rem;
     }
 
-    article h2 {
-        font-size: 1.3rem;
-    }
+    article h2 { font-size: 1.3rem; }
 
     div {
         display: flex;
@@ -425,11 +393,7 @@ article:hover {
         justify-content: center;
     }
 
-    .footer {
-        display: none;
-    }
+    .footer { display: none; }
 
-    button {
-        margin-top: 1rem;
-    }
+    button { margin-top: 1rem; }
 }
